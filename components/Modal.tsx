@@ -43,24 +43,24 @@ export default function Modal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-50 overflow-y-auto animate-fade-in">
       <div className="flex min-h-full items-center justify-center p-4">
         {/* Backdrop */}
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+          className="fixed inset-0 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm transition-opacity"
           onClick={onClose}
         ></div>
 
         {/* Modal */}
         <div
-          className={`relative bg-white rounded-lg shadow-xl w-full ${sizeClasses[size]} transform transition-all`}
+          className={`relative glass rounded-2xl shadow-glow-lg w-full ${sizeClasses[size]} transform transition-all animate-scale-in border border-gray-200/20`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+          <div className="flex items-center justify-between p-6 border-b border-gray-200/50 bg-gradient-to-r from-primary-50/50 to-transparent">
+            <h3 className="text-2xl font-bold gradient-text">{title}</h3>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 focus:outline-none"
+              className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-all transform hover:scale-110"
             >
               <svg
                 className="h-6 w-6"
@@ -77,7 +77,7 @@ export default function Modal({
           </div>
 
           {/* Content */}
-          <div className="p-6">{children}</div>
+          <div className="p-6 max-h-[70vh] overflow-y-auto">{children}</div>
         </div>
       </div>
     </div>
